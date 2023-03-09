@@ -7,13 +7,17 @@ async function handleImages(event) {
     downloadBtn.disabled = true;
     downloadBtn.style.display = 'block';
 
+    const input_size = document.getElementById("size").value;
+    const input_pixels = document.getElementById("pixels").value;
+
     const files = event.target.files;
     for await (const file of files) {
       const { size, width, height, src } = await imageResolution(file);
 
+      const maxPixels = width > height ? width : height;
       const options = {
-        maxSizeMB: 1,
-        maxWidthOrHeight: width > height ? width : height,
+        maxSizeMB: input_size ?? 1,
+        maxWidthOrHeight: input_pixels ?? maxPixels,
         useWebWorker: true
       };
 
