@@ -26,7 +26,7 @@
       <div class="input-group w-auto">
         <input type="number" class="form-control form-control-sm"
           style="max-width: 70px;"
-          placeholder="Max Resolution (Pixels)" value="2480" id="pixels" 
+          placeholder="Max Resolution (Pixels)" value="4096" id="pixels" 
         />
         <span class="input-group-text" id="basic-addon2">px</span>
       </div>
@@ -52,6 +52,11 @@
       </button>
     </div>
 
+    <div class="row d-none" id="size-info">
+      <div>Original Size: <label id="original-size"></label></div>
+      <div>Compressed Size: <label id="final-size"></label></div>
+    </div>
+
     <div class="row" id="compressedBlock"></div>
 
     <img src="" id="imgSize" style="display: none;" />
@@ -67,6 +72,8 @@
       </div>
     </div>
 
+    <!-- <script src="https://cdn.jsdelivr.net/npm/exif-js"></script> -->
+    <script src="./js/exif.saver.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
   </body>
 </html>
